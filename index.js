@@ -4,13 +4,8 @@ module.exports = {
   name: 'ember-sticky-element',
 
   included: function(app, parentAddon) {
-    var target = (parentAddon || app);
+    this._super.included.apply(this, arguments);
 
-    // necessary for nested usage
-    if (target.app) {
-      target = target.app;
-    }
-
-    target.import('vendor/ember-sticky-element.css');
+    this.import('vendor/ember-sticky-element.css');
   }
 };
